@@ -10,7 +10,7 @@ const SignIn: React.FC = () => {
 
   const handleClick = () => {
     const user = {
-      email: "sweelemk@gmail.com",
+      email: "sweelemk11@gmail.com",
       password: "123456",
     };
     dispatch(authRegister(user))

@@ -1,9 +1,9 @@
 import Router from "pages";
-import { withProviders, ThemeProvider } from "shared/providers";
+import { withProviders, ThemeProvider } from "app/providers";
 
 const App = () => {
   return (
-    <ThemeProvider storageKey="theme">
+    <ThemeProvider defaultTheme="light" storageKey="theme">
       <Router />
     </ThemeProvider>
   );

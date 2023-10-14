@@ -8,9 +8,12 @@ export type CreateUser = {
   password: string;
 }
 
-export type UserProfile = {
+export type Roles = string[];
+
+export type User = {
   id: string;
-  name?: string;
-  email?: string;
-  picture?: string;
+  username: string;
+  full_name: string;
+  email: string;
+  avatar_url: string;
 }

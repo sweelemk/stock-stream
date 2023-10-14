@@ -1,7 +1,7 @@
 import { supabase } from "shared/api";
 import { CreateUser } from "shared/types";
 
-export const signUp = async (user: CreateUser) => {
+export const signUp = async (user: CreateUser) => {  
   return await supabase.auth.signUp(
     {
       email: user.email,

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useActionCreators, useAppDispatch } from "store/hooks";
-import { appActions, getProfile } from "store/models";
+import { appActions, getUser } from "store/models";
 import { authActions } from "./model";
 import { supabase } from "shared/api";
 
@@ -25,7 +25,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
         navigate("/");
 
-        dispatch(getProfile(session.user.id))
+        dispatch(getUser(session.user.id))
           .unwrap()
           .finally(() => {
             app.changeLoadingStatus(false);
@@ -35,9 +35,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       }
     });
 
-    supabase.auth.onAuthStateChange(() => {
+    const {data: { subscription }} = supabase.auth.onAuthStateChange(() => {
       // console.log(session);
     });
+    return () => subscription.unsubscribe();
   }, []);
 
   return children;

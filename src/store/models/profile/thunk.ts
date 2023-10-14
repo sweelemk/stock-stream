@@ -1,22 +1,31 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { supabase } from "shared/api";
-import { UserProfile } from "shared/types";
+import { User } from "shared/types";
 
-export const getProfile = createAsyncThunk(
-  "profile/getProfile",
+export const getUser = createAsyncThunk(
+  "profile/getUser",
   async (userId: string) => {
     try {
-      const { data: profiles, error } = await supabase
-        .from("profile")
-        .select("id, email, name, picture, country, city, province, bio")
+      const { data: users, error } = await supabase
+        .from("users")
+        .select(
+          `
+          id, 
+          username, 
+          full_name, 
+          avatar_url, 
+          email,
+          roles(role)
+        `
+        )
         .eq("id", userId);
-      const [profile] = profiles as UserProfile[];
+      const [user] = users as User[];
 
       if (error) {
         throw new Error(error.message);
       }
 
-      return profile;
+      return user;
     } catch (error: any) {
       throw new Error(error.message);
     }

@@ -1,9 +1,9 @@
-import { AuthProvider } from "components/auth-provider";
+import { AuthProvider as AuthProviderComponent } from "components/auth-provider";
 
-export const RouterProvider = (component: () => React.ReactNode) => () => {
+export const AuthProvider = (component: () => React.ReactNode) => () => {
   return (
-    <AuthProvider>
+    <AuthProviderComponent>
       {component()}
-    </AuthProvider>
+    </AuthProviderComponent>
   );
 };

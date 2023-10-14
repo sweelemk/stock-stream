@@ -1,12 +1,13 @@
-
 import { createSlice } from "@reduxjs/toolkit";
-import { UserProfile } from "shared/types";
-import { getProfile } from ".";
+import { User } from "shared/types";
+import { getUser } from ".";
 
-const initialState: UserProfile = {
+const initialState: User = {
   id: "",
-  name: "",
-  picture: "",
+  username: "",
+  full_name: "",
+  avatar_url: "",
+  email: "",
 };
 
 const slice = createSlice({
@@ -14,8 +15,8 @@ const slice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getProfile.fulfilled, (_, action) => {
-      return action.payload
+    builder.addCase(getUser.fulfilled, (_, action) => {
+      return action.payload;
     });
   },
 });

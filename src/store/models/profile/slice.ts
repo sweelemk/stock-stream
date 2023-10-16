@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { User } from "shared/types";
+import { User } from "shared/types/collections";
 import { getUser } from ".";
 
 const initialState: User = {

@@ -1,12 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { supabase } from "shared/api";
-import { User } from "shared/types";
 
 export const getUser = createAsyncThunk(
   "profile/getUser",
   async (userId: string) => {
     try {
-      const { data: users, error } = await supabase
+      const { data: user, error } = await supabase
         .from("users")
         .select(
           `
@@ -15,11 +14,11 @@ export const getUser = createAsyncThunk(
           full_name, 
           avatar_url, 
           email,
-          roles(role)
+          roles (role)
         `
         )
-        .eq("id", userId);
-      const [user] = users as User[];
+        .eq("id", userId)
+        .single();
 
       if (error) {
         throw new Error(error.message);

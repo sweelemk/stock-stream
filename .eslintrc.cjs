@@ -17,5 +17,6 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": ["off", { ignoreRestArgs: true }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off"
   },
 };

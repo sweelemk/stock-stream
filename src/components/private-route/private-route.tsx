@@ -10,7 +10,7 @@ const PrivateRoute: React.FC = () => {
   return auth ? (
     <Outlet />
   ) : (
-    <Navigate to="/sign-in" replace state={{ from: location  }} />
+    <Navigate to="/login" replace state={{ from: location  }} />
   );
 };
 

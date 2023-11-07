@@ -90,11 +90,17 @@
 @layer base {
   html {
     font-family: "Gilroy";
+    @apply h-full;
   }
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground bg-slate-100;
+    @apply h-full;
+  }
+
+  #root {
+    @apply h-full;
   }
 }

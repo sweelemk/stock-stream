@@ -1,41 +1,9 @@
-import { authRegister } from "components/auth-provider/model";
-import { useNavigate } from "react-router-dom";
-import { Button } from "shared/ui";
-import { useAppDispatch } from "store/hooks";
-import { getUser } from "store/models";
+import { LoginForm } from "components/auth-forms";
 
-const SignIn: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    const user = {
-      email: "sweelemk11@gmail.com",
-      password: "123456",
-    };
-    dispatch(authRegister(user))
-      .unwrap()
-      .then((response) => {
-        if (response) {
-          dispatch(getUser(response.id))
-            .unwrap()
-            .finally(() => {
-              navigate("/");
-            });
-        } else {
-          throw new Error("Something went wrong. Please, try again");
-        }
-      })
-      .catch((error) => {
-        console.error(error.message);
-      })
-      .finally(() => {});
-  };
+const SignInPage: React.FC = () => {
   return (
-    <div>
-      <Button onClick={handleClick}>Sign up</Button>
-    </div>
+    <LoginForm />
   );
 };
 
-export default SignIn;
+export default SignInPage;

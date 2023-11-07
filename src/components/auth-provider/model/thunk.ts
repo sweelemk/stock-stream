@@ -1,9 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { signIn, signOut, signUp } from "../api";
+import { SignInWithPassword, SignUpWithPassword } from "shared/types";
 
 export const authLogin = createAsyncThunk(
   "auth/login",
-  async (credentials: { email: string; password: string }) => {
+  async (credentials: SignInWithPassword) => {
     try {
       const {
         data: { user },
@@ -23,7 +24,7 @@ export const authLogin = createAsyncThunk(
 
 export const authRegister = createAsyncThunk(
   "auth/register",
-  async (credentials: { email: string; password: string }) => {
+  async (credentials: SignUpWithPassword) => {
     try {
       const {
         data: { user },

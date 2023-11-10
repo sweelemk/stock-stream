@@ -1,4 +1,4 @@
-import Text from "./Text";
+import Text from "./text";
 import Heading from "./heading";
 import Link from "./link";
 

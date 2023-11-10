@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { Dashboard } from "./dashboard";
 import { SignInPage, RegisterationPage } from "./auth";
 import { PrivateRoute } from "components/private-route";
 import AppLayout from "shared/layouts/app-layout";
 import AuthLayout from "shared/layouts/auth-layout";
 import { useStateSelector } from "store/hooks";
 import { isAppLoading } from "store/models";
+import { ROUTES } from "shared/constants/routes";
 
 const Router = () => {
   const appLoading = useStateSelector(isAppLoading);
@@ -17,7 +17,14 @@ const Router = () => {
         <Routes>
           <Route element={<PrivateRoute />}>
             <Route element={<AppLayout />}>
-              <Route path="/" element={<Dashboard />} />
+              {
+                ROUTES.map(route => {
+                  const Component = route.component;
+                  return (
+                    <Route key={route.id} path={route.path} element={<Component />} />
+                  )
+                })
+              }
             </Route>
           </Route>
           <Route element={<AuthLayout />}>

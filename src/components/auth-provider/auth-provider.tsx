@@ -23,7 +23,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           email: session.user.email!,
         });
 
-        navigate("/");
+        navigate("/dashboard");
 
         dispatch(getUser(session.user.id))
           .unwrap()

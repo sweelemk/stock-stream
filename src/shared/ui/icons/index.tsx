@@ -1,10 +1,24 @@
-import { HomeIcon } from "@heroicons/react/24/outline";
+import {
+  HomeIcon,
+  Bars3Icon,
+  UserCircleIcon,
+  ChevronDownIcon,
+  Cog6ToothIcon,
+  ArrowLeftOnRectangleIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { cn } from "shared/utils";
 import { Mock } from "./mock";
 
 const IconComponents = {
   home: HomeIcon,
-  mock: Mock
+  burger: Bars3Icon,
+  user: UserCircleIcon,
+  chevronDown: ChevronDownIcon,
+  settings: Cog6ToothIcon,
+  exit: ArrowLeftOnRectangleIcon,
+  mock: Mock,
+  close: XMarkIcon
 } as const;
 
 export type IconName = keyof typeof IconComponents;
@@ -14,10 +28,10 @@ type IconProps = {
   className?: string;
 };
 
-const Icon: React.FC<IconProps> = ({ name, className, ...props}) => {
+const Icon: React.FC<IconProps> = ({ name, className, ...props }) => {
   const Components = IconComponents[name];
 
-  return <Components className={cn('w-6 h-6', className)} {...props}/>;
+  return <Components className={cn("w-5 h-5", className)} {...props} />;
 };
 
 export default Icon;

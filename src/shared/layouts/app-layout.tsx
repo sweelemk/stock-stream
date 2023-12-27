@@ -5,8 +5,10 @@ import { Outlet } from "react-router-dom";
 const AppLayout = () => {
   return (
     <div className="">
-      <Sidebar />
-      <div className="lg:pl-72 h-[100vh]">
+      <div className="hidden lg:flex h-full">
+        <Sidebar />
+      </div>
+      <div className="lg:pl-72">
         <Header />
         <main className="py-10">
           <div className="px-4 sm:px-6 lg:px-8 mx-auto">

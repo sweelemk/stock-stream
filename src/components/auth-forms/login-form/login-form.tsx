@@ -1,10 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import { authRegister } from "components/auth-provider/model";
 import { Button, Logo, Input, Typography } from "shared/ui";
 import { useAppDispatch } from "store/hooks";
-// import { getUser } from "store/models";
 import { schema, FormData } from "./login-form-validations";
 import { authLogin } from "components/auth-provider/model";
 import { getUser } from "store/models";
@@ -43,12 +41,11 @@ const LoginForm = () => {
         console.log(error.message);
       });
   };
-  console.log(isSubmitting);
 
   return (
     <div className="flex flex-1 flex-col justify-center">
       <div className="flex flex-col px-6 py-10 bg-white rounded-lg w-full max-w-sm shadow mx-auto items-center">
-        <Logo className="w-12" />
+        <Logo className="w-12 text-primary" />
         <Heading size={6} className="mt-10">
           Sign in to your account
         </Heading>

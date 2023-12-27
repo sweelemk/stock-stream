@@ -96,7 +96,7 @@
     @apply border-border;
   }
   body {
-    @apply text-foreground bg-slate-100;
+    @apply text-foreground bg-neutral-50;
     @apply h-full;
   }
 

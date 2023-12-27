@@ -55,11 +55,10 @@ const RegisterForm = () => {
       })
       .finally(() => {});
   };
-  console.log(isSubmitting);
 
   return (
     <div className="flex flex-1 flex-col justify-center">
-      <div className="flex flex-col px-6 py-10 bg-white rounded-lg w-full max-w-md shadow mx-auto items-center">
+      <div className="flex flex-col px-6 py-10 bg-white rounded-lg w-full max-w-sm shadow mx-auto items-center">
         <Logo className="w-12" />
         <Heading size={6} className="mt-10">
           Create your account
@@ -83,7 +82,7 @@ const RegisterForm = () => {
                     <Input
                       {...field}
                       className={`${
-                        errors["email"] &&
+                        errors["firstName"] &&
                         "border-red-600 text-red-600 focus-visible:ring-red-600"
                       }`}
                     />
@@ -108,7 +107,7 @@ const RegisterForm = () => {
                     <Input
                       {...field}
                       className={`${
-                        errors["email"] &&
+                        errors["lastName"] &&
                         "border-red-600 text-red-600 focus-visible:ring-red-600"
                       }`}
                     />
@@ -174,13 +173,13 @@ const RegisterForm = () => {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                Sign in
+                Create account
               </Button>
             </div>
           </form>
           <Text size={2} className="flex mt-10 justify-center">
             Already have an account?&nbsp;
-            <Link to="/login">Login</Link>
+            <Link to="/login">Sign in</Link>
           </Text>
         </div>
       </div>
